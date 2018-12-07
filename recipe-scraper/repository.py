@@ -17,7 +17,7 @@ class Postgres(object):
 
     def store_recipes(self, recipes):
         for recipe in recipes:
-            self.cursor.execute("INSERT INTO recipe(title, url, image_url) VALUES ('{0}', '{1}', '{2}')".format(recipe.title, recipe.url, recipe.image_url))
+            self.cursor.execute("INSERT INTO recipe(title, url, image_url, ingredients) VALUES (%s, %s, %s, %s)", (recipe.title, recipe.url, recipe.image_url, recipe.ingredients))
 
         self.conn.commit()
         

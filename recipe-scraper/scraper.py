@@ -20,10 +20,12 @@ try:
         a_tag = recipe.find('a')
         title = a_tag['data-recipename']
         url = a_tag['href']
+        ingredients = recipe.find('li', {"class": 'md_lte_hidden'}).find('span')['title'].split('\n')
+        ingredients_string = ', '.join(ingredients)
         
         regex = re.compile('src="\/\/(.*.jpg)"')
         image_url = regex.search(str(a_tag), re.IGNORECASE).group(1)
-        stored_recipes.append(Recipe(title, url, image_url))
+        stored_recipes.append(Recipe(title, url, image_url, ingredients_string))
 
     Postgres().store_recipes(stored_recipes)
 
