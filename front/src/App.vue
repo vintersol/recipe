@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h3>Recipes!!</h3>
+    <h3>Recept</h3>
     <div class="recipe-holder" v-for="(recipe, key) in recipes" v-bind:key="key">
       <recipeImage :url=recipe.url :imageUrl=recipe.imageUrl :title=recipe.title :ingredients=recipe.ingredients></recipeImage>
     </div>

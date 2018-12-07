@@ -1,19 +1,22 @@
 <template>
-  <!-- <div class="container" @click="navigate(url)">
-          <img v-bind:src="addHttp(imageUrl)" style="width:100%;">
-          <div class="centered overlay-text">{{ title }}</div>
-  </div>-->
-  <div class="container" @mouseover="showIngredients = true" @mouseleave="showIngredients = false">
+  <div
+    class="container"
+    @mouseover="showIngredients = true"
+    @click="showIngredients = true"
+    @mouseleave="showIngredients = false"
+  >
     <img class="recipeImage" v-bind:src="addHttp(imageUrl)">
 
     <div class="overlay-textbox">
       <div class="overlay-text" v-show="!showIngredients">{{ title }}</div>
     </div>
     <div class="ingredients-overlay" v-show="showIngredients">
-      <b>Ingredienser</b>
-      <br>
-      {{ ingredients }}
-      <a id="navigate-btn" href="navigate(url)">Gå till recept</a>
+      <div id="ingredients-text">
+        <b>Ingredienser</b>
+        <br>
+        {{ ingredients }}
+      </div>
+      <a id="navigate-btn" :href="url">Gå till recept</a>
     </div>
   </div>
 </template>
@@ -42,9 +45,6 @@ export default {
 
     addHttp(url) {
       return "http://" + url;
-    },
-    navigate(url) {
-      window.location.href = url;
     }
   }
 };
@@ -52,6 +52,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#ingredients-text {
+  margin-top: 3px;
+}
+
 #navigate-btn {
   position: absolute;
   bottom: 0;
