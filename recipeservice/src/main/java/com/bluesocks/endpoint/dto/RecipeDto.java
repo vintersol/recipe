@@ -14,4 +14,5 @@ public class RecipeDto {
     private String url;
     private String imageUrl;
     private String ingredients;
+    private Integer cookingTime;
 }

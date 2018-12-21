@@ -19,7 +19,7 @@ public class RecipeRepository
 
     public List<Recipe> getRecipes()
     {
-        Query query = em.createNativeQuery("SELECT id, title, url, image_url, ingredients FROM recipe;", Recipe.class);
+        Query query = em.createNativeQuery("SELECT id, title, url, image_url, ingredients, cooking_time FROM recipe;", Recipe.class);
         List<Recipe> recipes = query.getResultList();
 
         return recipes;

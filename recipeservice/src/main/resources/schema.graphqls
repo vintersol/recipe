@@ -11,4 +11,5 @@ type Recipe {
     url: String
     imageUrl: String
     ingredients: String
+    cookingTime: Int
 }
