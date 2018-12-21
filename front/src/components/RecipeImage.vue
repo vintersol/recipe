@@ -2,7 +2,7 @@
   <div
     class="container"
     @mouseover="showIngredients = true"
-    @click="showIngredients = true"
+    @click="showIngredients = !showIngredients"
     @mouseleave="showIngredients = false"
   >
     <img class="recipeImage" v-bind:src="addHttp(imageUrl)">
@@ -39,9 +39,6 @@ export default {
   },
 
   methods: {
-    mouseOver() {
-      this.showIngredients = !this.showIngredients;
-    },
 
     addHttp(url) {
       return "http://" + url;
